@@ -5,10 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { JoinRoomComponent } from './join-room/join-room.component';
+import { ChatComponent } from './chat/chat.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    JoinRoomComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
