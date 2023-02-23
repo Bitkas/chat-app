@@ -1,0 +1,13 @@
+import express, {Response, Request, Express} from 'express';
+const app: Express = express();
+const PORT: number = 3000;
+
+app.use(express.static("../angular-app/dist/chat-app"));
+
+app.get("/api/data", (req: Request, res: Response) => {
+  res.status(200).json({data: "Hello World!"})  
+});
+
+app.listen(PORT, () => {
+    console.log("Server running on port: ", PORT);
+})
