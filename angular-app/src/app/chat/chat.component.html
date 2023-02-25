@@ -1,12 +1,11 @@
 <div>
     <div>
         <div *ngFor="let message of messages">
-            <p>{{message.message}}</p>
-            <p>{{message.from}}</p>
+            <p>{{message}}</p>
         </div>
     </div>
     <div>
-        <input id="message-to-send" type="text">
-        <button id="send-message">Send</button>
+        <input type="text" #sendMessage>
+        <button id="send-message" (click)="send(sendMessage.value)">Send</button>
     </div>
 </div>

@@ -3,21 +3,27 @@ import { DefaultEventsMap } from "socket.io/dist/typed-events";
 
 export class webSocketHandler {
 
-    io: Server<DefaultEventsMap, DefaultEventsMap, DefaultEventsMap, any>;
-    constructor(io: Server<DefaultEventsMap, DefaultEventsMap, DefaultEventsMap, any>) {
-        this.io = io;
+    private socket: Socket;
+    constructor(socket: Socket) {
+        this.socket = socket;
+        socket.on("joinRoom", this.JoinRoom.bind(this));
+  socket.on("message", this.BroadcastMessage.bind(this));
+  socket.on("disconnect", (reason) => {
+    console.log("DISCONNECTED, REASON: ", reason);
+  })
+        this.JoinRoom = this.JoinRoom.bind(this);
+        this.BroadcastMessage = this.BroadcastMessage.bind(this);
     }
 
-    JoinRoom(room: string, socket: Socket): void {
-        socket.join(room);
+    JoinRoom(room: string): void {
+        this.socket.join(room);
+    }
+    
+    BroadcastMessage(message: string, room: string): void {
+        this.socket.broadcast.to(room).emit("broadcast-message", message)
     }
 
-    BroadcastMessage(message: string): void {
-        for(const [name, room] of this.io.sockets.adapter.rooms) {
-            if(room.size > 0) {
-                this.io.to(name).emit("broadcast-message", message);
-                break;
-            }
-        }
+    get getSocket(): Socket {
+        return this.socket;
     }
 }

@@ -2,15 +2,15 @@
     <div>
         <h3>Available Rooms</h3>
         <ul>
-        <li *ngFor="let room of rooms;let i = index" id="{{i}}-{{room}}">
+        <li *ngFor="let room of rooms;" (click)="JoinRoom(room)">
             {{room}}
         </li>
     </ul>
     </div>
     <div>
         <h3>Create Room</h3>
-        <input id="room-name" type="text" placeholder="Insert name of room">
-        <button id="create-new-room">Create Room</button>
+        <input #roomName type="text" placeholder="Insert name of room">
+        <button (click)="JoinRoom(roomName.value)">Create Room</button>
     </div>
 </div>
 

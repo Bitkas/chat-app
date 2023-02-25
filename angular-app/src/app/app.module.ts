@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { JoinRoomComponent } from './join-room/join-room.component';
 import { ChatComponent } from './chat/chat.component';
+import { ParentComponent } from './parent/parent.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     JoinRoomComponent,
-    ChatComponent
+    ChatComponent,
+    ParentComponent
   ],
   imports: [
     BrowserModule,
