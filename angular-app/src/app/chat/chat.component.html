@@ -1,11 +1,11 @@
 <div>
-    <div>
-        <div *ngFor="let message of messages">
-            <p>{{message}}</p>
-        </div>
+  <div>
+    <div *ngFor="let message of messages">
+      <p>{{ message }}</p>
     </div>
-    <div>
-        <input type="text" #sendMessage>
-        <button id="send-message" (click)="send(sendMessage.value)">Send</button>
-    </div>
+  </div>
+  <div>
+    <input type="text" #sendMessage />
+    <button id="send-message" (click)="send(sendMessage.value)">Send</button>
+  </div>
 </div>
