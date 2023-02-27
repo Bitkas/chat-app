@@ -1,2 +1,5 @@
-<app-join-room (joinRoomEvent)="RoomJoined($event)" *ngIf="isRoomChosen === false"></app-join-room>
-<app-chat [room]="room" *ngIf="isRoomChosen === true;"></app-chat>
+<app-join-room
+  (joinRoomEvent)="RoomJoined($event)"
+  *ngIf="isRoomChosen === false"
+></app-join-room>
+<app-chat [room]="room" *ngIf="isRoomChosen === true"></app-chat>

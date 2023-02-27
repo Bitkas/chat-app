@@ -1,16 +1,15 @@
 <div>
-    <div>
-        <h3>Available Rooms</h3>
-        <ul>
-        <li *ngFor="let room of rooms;" (click)="JoinRoom(room)">
-            {{room}}
-        </li>
+  <div>
+    <h3>Available Rooms</h3>
+    <ul>
+      <li *ngFor="let room of rooms" (click)="JoinRoom(room)">
+        {{ room }}
+      </li>
     </ul>
-    </div>
-    <div>
-        <h3>Create Room</h3>
-        <input #roomName type="text" placeholder="Insert name of room">
-        <button (click)="JoinRoom(roomName.value)">Create Room</button>
-    </div>
+  </div>
+  <div>
+    <h3>Create Room</h3>
+    <input #roomName type="text" placeholder="Insert name of room" />
+    <button (click)="JoinRoom(roomName.value)">Create Room</button>
+  </div>
 </div>
-

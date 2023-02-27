@@ -8,9 +8,8 @@ describe('JoinRoomComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ JoinRoomComponent ]
-    })
-    .compileComponents();
+      declarations: [JoinRoomComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(JoinRoomComponent);
     component = fixture.componentInstance;

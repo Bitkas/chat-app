@@ -14,14 +14,10 @@ import { ParentComponent } from './parent/parent.component';
     AppComponent,
     JoinRoomComponent,
     ChatComponent,
-    ParentComponent
+    ParentComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
