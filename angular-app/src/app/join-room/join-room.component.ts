@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-join-room',
   templateUrl: './join-room.component.html',
   styleUrls: ['./join-room.component.css'],
 })
-export class JoinRoomComponent {
+export class JoinRoomComponent implements OnInit {
   rooms: Array<string> = [];
   @Output() joinRoomEvent = new EventEmitter<{
     isRoomChosen: boolean;
@@ -22,7 +22,7 @@ export class JoinRoomComponent {
     });
   }
 
-  JoinRoom(room: string) {
+  protected JoinRoom(room: string) {
     console.log('ROOM: ', room);
     const value = {
       room: room,

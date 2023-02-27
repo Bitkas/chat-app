@@ -1,13 +1,12 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
-import { Message } from '../../../../server/models/Message';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { io, Socket } from 'socket.io-client';
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css'],
 })
-export class ChatComponent {
-  @Input() room: string = '';
+export class ChatComponent implements OnChanges {
+  @Input() room = '';
   messages: Array<string> = [];
   socket: Socket;
   constructor() {
@@ -19,7 +18,7 @@ export class ChatComponent {
       this.SetupChat();
     }
   }
-  SetupChat() {
+  private SetupChat() {
     this.socket.on('error', (error) => {
       console.log('ERROR: ', error);
     });
@@ -30,7 +29,7 @@ export class ChatComponent {
     });
   }
 
-  send(message: string) {
+  protected Send(message: string) {
     this.messages.push(message);
     this.socket.emit('message', message, this.room);
   }

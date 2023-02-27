@@ -6,12 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./parent.component.css'],
 })
 export class ParentComponent {
-  isRoomChosen: boolean = false;
-  room: string = '';
+  isRoomChosen = false;
+  room = '';
 
-  constructor() {}
-
-  RoomJoined(event: { isRoomChosen: boolean; room: string }) {
+  protected RoomJoined(event: { isRoomChosen: boolean; room: string }) {
     if (event.isRoomChosen === true) {
       this.room = event.room;
       this.isRoomChosen = true;
