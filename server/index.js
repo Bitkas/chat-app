@@ -15,11 +15,10 @@ const web_sockets_handler_1 = require("./scripts/web-sockets-handler");
 const app = (0, express_1.default)();
 const SERVER_PORT = 3000;
 app.use(express_1.default.static("../angular-app/dist/chat-app"));
-app.use(body_parser_1.default.json({ limit: '30 mb' }));
-app.use(body_parser_1.default.urlencoded({ limit: '30 mb', extended: true }));
+app.use(body_parser_1.default.json({ limit: "30 mb" }));
+app.use(body_parser_1.default.urlencoded({ limit: "30 mb", extended: true }));
 (0, app_1.initializeApp)(environment_1.environment.firebase);
 const firestoreService = new firebase_service_1.firebaseService((0, firestore_1.getFirestore)());
-;
 app.get("/api/data", (req, res) => {
     res.status(200).json({ data: "Hello World!" });
 });
