@@ -1,0 +1,51 @@
+.outer-container {
+  display: flex;
+  justify-content: center;
+}
+
+.inner-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 99vh;
+}
+
+.form-container {
+  background-color: #f8f8f8;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+}
+
+p:empty:not(:focus)::before {
+  content: attr(data-placeholder);
+}
+
+.form_send {
+  width: 400px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.input_container {
+  background-color: #ecf3ff;
+  width: 200px;
+  height: fit-content;
+  max-height: 70px;
+  overflow-y: auto;
+  border-radius: 50% 50%;
+}
+
+.inputField {
+  width: 90%;
+  left: 15px;
+  position: relative;
+}
+
+.available-rooms {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

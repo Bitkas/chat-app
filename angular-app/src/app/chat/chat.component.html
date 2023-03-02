@@ -1,11 +1,22 @@
 <div>
-  <div>
-    <div *ngFor="let message of messages">
-      <p>{{ message }}</p>
+  <div class="messages_container">
+    <div
+      class="message_container {{ message.className }}"
+      *ngFor="let message of messages"
+    >
+      <p>{{ message.message }}</p>
     </div>
   </div>
-  <div>
-    <input type="text" #sendMessage />
-    <button id="send-message" (click)="Send(sendMessage.value)">Send</button>
+  <div class="form_send">
+    <div class="input_container">
+      <p
+        data-placeholder="Aa"
+        class="inputField"
+        contenteditable="true"
+        type="text"
+        #sendMessage
+      ></p>
+    </div>
+    <button id="send-message" (click)="Send(sendMessage)">Send</button>
   </div>
 </div>

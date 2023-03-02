@@ -19,15 +19,22 @@ export class JoinRoomComponent implements OnInit {
     const request = this.http.get<Array<string>>('/rooms/list');
     request.subscribe((data: Array<string>) => {
       this.rooms = data;
+      console.log('DATA: ', data);
     });
   }
 
-  protected JoinRoom(room: string) {
+  protected JoinRoom(inputField: HTMLParagraphElement) {
+    const room = inputField.innerText;
+    if (room.length === 0) {
+      alert('please write a name for the room!');
+      return;
+    }
     console.log('ROOM: ', room);
     const value = {
       room: room,
       isRoomChosen: true,
     };
     this.joinRoomEvent.emit(value);
+    inputField.innerHTML = '';
   }
 }

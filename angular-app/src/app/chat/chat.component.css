@@ -1,0 +1,52 @@
+.messages_container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 90vw;
+  height: 90vh;
+}
+
+.message_container {
+  border: 2px;
+  border-color: black;
+  position: relative;
+  background-color: #f8f8f8;
+  text-align: center;
+  margin: 4px;
+  width: 50vw;
+}
+
+.ownMessage {
+  align-self: flex-end;
+}
+
+.outMessage {
+  align-self: flex-start;
+}
+
+.input_container {
+  background-color: #ecf3ff;
+  width: 200px;
+  height: fit-content;
+  max-height: 70px;
+  overflow-y: auto;
+  border-radius: 50% 50%;
+}
+
+.inputField {
+  width: 90%;
+  left: 15px;
+  position: relative;
+}
+
+.form_send {
+  width: 100vw;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+p:empty:not(:focus)::before {
+  content: attr(data-placeholder);
+}
