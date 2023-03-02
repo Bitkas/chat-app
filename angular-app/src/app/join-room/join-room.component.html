@@ -1,15 +1,41 @@
-<div>
-  <div>
-    <h3>Available Rooms</h3>
-    <ul>
-      <li *ngFor="let room of rooms" (click)="JoinRoom(room)">
-        {{ room }}
-      </li>
-    </ul>
-  </div>
-  <div>
-    <h3>Create Room</h3>
-    <input #roomName type="text" placeholder="Insert name of room" />
-    <button (click)="JoinRoom(roomName.value)">Create Room</button>
+<div class="outer-container">
+  <div class="inner-container">
+    <div class="form-container">
+      <div class="available-rooms">
+        <div style="display: flex; justify-content: center">
+          <h3>Available Rooms</h3>
+        </div>
+        <div style="display: flex; justify-content: center">
+          <div>
+            <ul>
+              <li
+                class="room-li"
+                *ngFor="let room of rooms"
+                (click)="JoinRoom(existingRoom)"
+              >
+                <p #existingRoom>{{ room }}</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="form_send">
+        <div style="display: flex; justify-content: center">
+          <h3>Create Room</h3>
+        </div>
+        <div style="display: flex; justify-content: center">
+          <div class="input_container">
+            <p
+              data-placeholder="Insert name of room"
+              class="inputField"
+              contenteditable="true"
+              type="text"
+              #roomName
+            ></p>
+          </div>
+          <button (click)="JoinRoom(roomName)">Create Room</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

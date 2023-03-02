@@ -7,8 +7,13 @@ import { io, Socket } from 'socket.io-client';
 })
 export class ChatComponent implements OnChanges {
   @Input() room = '';
-  messages: Array<string> = [];
+  messages: Array<{
+    message: string;
+    className: string;
+  }> = [];
   socket: Socket;
+  inputText = 'Aa';
+
   constructor() {
     this.socket = io();
   }
@@ -24,13 +29,20 @@ export class ChatComponent implements OnChanges {
     });
     this.socket.emit('joinRoom', this.room);
     this.socket.on('broadcast-message', (message: string) => {
-      console.log('message: ', message);
-      this.messages.push(message);
+      this.messages.push({
+        message: message,
+        className: 'outMessage',
+      });
     });
   }
 
-  protected Send(message: string) {
-    this.messages.push(message);
+  protected Send(inputField: HTMLParagraphElement) {
+    const message = inputField.innerText;
+    this.messages.push({
+      message: message,
+      className: 'ownMessage',
+    });
     this.socket.emit('message', message, this.room);
+    inputField.innerHTML = '';
   }
 }
