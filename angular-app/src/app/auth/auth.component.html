@@ -4,6 +4,6 @@
 
     <label for="password">Password</label>
     <input type="password" name="password" #password>
-    <button type="submit" (onclick)="authenticate(username.value, password.value)">Authenticate</button>
-    <p routerLink="/register" routerLinkActive="active">Don't Have an account? Login</p>
+    <button type="submit" (click)="authenticate(username.value, password.value)">Authenticate</button>
+    <p routerLink="/register" routerLinkActive="active">Don't Have an account? Register!</p>
 </div>
