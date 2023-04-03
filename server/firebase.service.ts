@@ -10,11 +10,14 @@ export class firebaseService {
     this.db = db;
   }
 
-  async GetOne<T>(collection: string, doc: string): Promise<T> {
+  async GetOne<T>(collection: string, doc: string): Promise<T | undefined> {
     const getDoc = this.db.collection(collection).doc(doc);
     const document = await getDoc.get();
 
-    return document as T;
+    if(document.exists === false) {
+      return undefined
+    }
+    return document.data() as T;
   }
 
   async ListMany<T>(collection: string): Promise<T> {
@@ -37,9 +40,10 @@ export class firebaseService {
 
   async AddOne<T>(
     collection: string,
+    doc: string,
     data: WithFieldValue<DocumentData>
   ): Promise<T> {
-    const response = await this.db.collection(collection).add(data);
+    const response = await this.db.collection(collection).doc(doc).set(data);
 
     return response as T;
   }
