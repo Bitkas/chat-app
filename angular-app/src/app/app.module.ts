@@ -9,6 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { JoinRoomComponent } from './join-room/join-room.component';
 import { ChatComponent } from './chat/chat.component';
 import { ParentComponent } from './parent/parent.component';
+import { AuthComponent } from './auth/auth.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { ParentComponent } from './parent/parent.component';
     JoinRoomComponent,
     ChatComponent,
     ParentComponent,
+    AuthComponent,
+    RegisterComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
